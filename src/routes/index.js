@@ -6,7 +6,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 export default new VueRouter({
-  mode: 'history', // url에 #이 제거된다
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -14,8 +14,6 @@ export default new VueRouter({
     },
     {
       path: '/login',
-      // component: LoginPage,
-      // code spliting 적용
       component: () => import('@/views/LoginPage.vue'),
     },
     {
@@ -23,16 +21,12 @@ export default new VueRouter({
       component: () => import('@/views/SignupPage.vue'),
     },
     {
-      path: '/main',
-      component: () => import('@/views/MainPage.vue'),
-    },
-    {
       path: '*',
       component: () => import('@/views/NotFoundPage.vue'),
     },
+    {
+      path: '/main',
+      component: () => import('@/views/MainPage.vue'),
+    },
   ],
 });
-
-// VueRouter 인스턴스를 생성하고 export default로 꺼내게 되면
-// index.js 파일에서 밖으로 나가게 된다
-// default의 역할은 하나의 변수로 전달...
