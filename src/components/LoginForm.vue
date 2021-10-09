@@ -56,11 +56,10 @@ export default {
           password: this.password,
         };
         const { data } = await loginUser(userData);
-        // 메인 페이지로 이동
-        // this.$router.push();
-        // <router-link to=""></router-link>
         console.log(data.user.username);
-        this.$store.commit('setUserName', data.user.username); // mutaions 호출하는 API
+        console.log(data.token);
+        this.$store.commit('setToken', data.token);
+        this.$store.commit('setUsername', data.user.username);
         this.$router.push('/main');
         // this.logMessage = `${data.user.username} 님 환영합니다`;
         // this.initForm();
