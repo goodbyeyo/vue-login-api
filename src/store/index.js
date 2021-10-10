@@ -6,7 +6,8 @@ import {
   saveAuthToCookie,
   saveUserToCookie,
 } from '@/utils/cookies';
-import { loginUser } from '@/api/index';
+import { loginUser } from '@/api/auth';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -31,8 +32,6 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    // async는 promise를 반드시 리턴한다
-    // return이 없어도 promise가 반환된다
     async LOGIN({ commit }, userData) {
       const { data } = await loginUser(userData);
       console.log(data.token);
