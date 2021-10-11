@@ -24,12 +24,12 @@
 
 <script>
 import { deleteCookie } from '@/utils/cookies';
+
 export default {
   computed: {
     isUserLogin() {
       return this.$store.getters.isLogin;
     },
-    // 로그인상태에 따라 로고 클릭시 이동 분기처리
     logoLink() {
       return this.$store.getters.isLogin ? '/main' : '/login';
     },
